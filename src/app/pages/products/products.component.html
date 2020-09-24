@@ -1,0 +1,48 @@
+<div class="flex flex-col">
+  <div class="text-5xl font-display ml-2">
+    Productos
+  </div>
+  <div class="flex my-4">
+    <div>
+      <div *ngFor="let s of productsFirstColumn" class="rounded-lg px-4 py-2 m-2 shadow bg-gray-100">
+        <div class="flex items-center">
+          <img [src]="'../../../assets/img/' + s.id +'.png'"alt="" class="w-16">
+          <div class="flex flex-col px-2">
+            <span class="text-xl font-bold">{{s.name}}</span>
+            <span class="italic w-48">{{s.description}}.</span>
+           
+          </div>
+          <div>
+            
+            <div class="flex">
+              <span (click)="addItem(s)" class=" cursor-pointer font-bold text-xl mx-2">+</span>
+              <span (click)="removeItem(s)" class="cursor-pointer font-bold text-xl mx-2">-</span>
+            </div>
+            <span class="italic text-right mx-2">${{s.price}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div *ngFor="let s of productsSecondColumn" class="rounded-lg px-4 py-2 m-2 shadow bg-gray-100">
+        <div class="flex items-center">
+          <img [src]="'../../../assets/img/' + s.id +'.png'"alt="" class="w-16">
+          <div class="flex flex-col px-2">
+            <span class="text-xl font-bold">{{s.name}}</span>
+            <span class="italic w-48">{{s.description}}.</span>
+           
+          </div>
+          <div>
+            
+            <div class="flex">
+              <span (click)="addItem(s)" class=" cursor-pointer font-bold text-xl mx-2">+</span>
+              <span (click)="removeItem(s)" class="cursor-pointer font-bold text-xl mx-2">-</span>
+            </div>
+            <span class="italic text-right mx-2">${{s.price}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="px-8 py-12">
+  <span class="font-display text-2xl">Tu orden actual</span>
+  <div class="mt-12">
+    <div *ngIf="orderState.details.length>0">
+
+      <div *ngFor ="let i of orderState.details" class="my-2">
+        <strong>{{i.name}}</strong> x <strong>{{i.quantity}}</strong>
+      </div>
+      <hr class="my-4">
+      <div class="">
+        Subtotal - <strong>${{calculateSubtotal()}}</strong>
+      </div>
+      <div>
+        Total - <strong>${{calculateTotal()}}</strong>
+      </div>
+      <div class="my-8">
+        <button (click)="sendOrder()" class="bg-olive-700 hover:bg-olive-600 text-gray-100 hover:text-white shadow rounded-full px-8 py-2">Ordenar</button>
+      </div>
+    </div>
+  </div>
+</div>

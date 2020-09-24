@@ -1,0 +1,23 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import url("https://use.typekit.net/tln7ixm.css");
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import 'tailwindcss/utilities';
+
+
+
+
+
+::ng-deep .mat-input-wrapper{
+  width:400px !important;
+}
+
+.mat-form-field{
+  width: 400px !important;
+}
+
+.filter-invert {
+  filter: invert(1) !important;
+}
+
+

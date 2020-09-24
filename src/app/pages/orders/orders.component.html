@@ -1,0 +1,35 @@
+<div class="flex flex-col"></div>
+<div class="flex align-baseline">
+  <div class="text-5xl font-display ml-2" >
+    Órdenes
+  </div>
+  <button (click)="orderRefresh()" class="mt-2 ml-8 text-black">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" stroke-width="2.5" stroke="#78659F" fill="none" style="width: 20x; height: 20px;"><path d="M53.72 36.61a21.91 21.91 0 11-3.35-16.51M51.72 7.85l-.87 12.93-12.93-.88M53.72 36.61a21.91 21.91 0 11-3.35-16.51"></path><path d="M51.72 7.85l-.87 12.93-12.93-.88"></path></svg>
+  </button>
+</div>
+
+<div *ngIf="currentOrders.length>0; else noOrders">
+  <div class="my-8 ml-2">Pulsa en cada orden para ver los detalles.</div>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let order of currentOrders; let i =index">
+      <mat-expansion-panel-header>
+        <div class="flex w-3/4 justify-around text-left font-sans">
+          <div class="font-bold">{{i +1}}</div>
+          <div class="w-32">Subtotal <strong>${{order.subtotal}}</strong></div>
+          <div class="mr-4 w-32">Total - <strong>${{order.total}}</strong></div>
+        </div>
+      </mat-expansion-panel-header>
+        <div *ngFor="let item of order.details" class="flex w-2/3 my-2 text-right font-sans justify-center ">
+              <img [src]="'../../../assets/img/' + item.id +'.png'"alt="" class="w-8">
+              <div class="w-32 ml-8"><strong>{{item.name}}</strong> x {{item.quantity}}</div>
+        </div>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<ng-template #noOrders>
+  <div className="text-2xl font-bold ml-2 my-8">
+    Aún no has efectuado ninguna orden.
+  </div>
+</ng-template>
